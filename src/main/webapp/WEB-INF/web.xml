@@ -3,5 +3,15 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-  <display-name>Archetype Created Web Application</display-name>
+  <display-name>WebBasics</display-name>
+  <!--
+  <servlet>
+    <servlet-name>ViewServlet</servlet-name>
+    <servlet-class>org.example.ViewServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewServlet</servlet-name>
+    <url-pattern>/servlets</url-pattern>
+  </servlet-mapping>
+  -->
 </web-app>

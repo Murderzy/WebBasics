@@ -1,0 +1,24 @@
+.auth-fragment{
+    background-color: moccasin;
+    height:2em;
+    width: 100%;
+    text-align: center;
+    padding: .3ch .5em;
+    display: inline-block;
+}
+input[type=radio] {
+    visibility: hidden;
+}
+input[type=radio]:checked + label {
+    border: 1px solid salmon;
+    font-weight: bold;
+}
+label {
+    cursor: pointer;
+    font-size: larger;
+    font-variant: all-petite-caps;
+}
+img{
+    height: 150px;
+    width: 190px;
+}

@@ -2,10 +2,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <% String home = "/WebBasics"; %>
+    <% String home = request.getContextPath(); %>
     <meta charset="UTF-8"/>
     <title>JSP Basics</title>
+    <link rel="stylesheet" href="<%=home%>/styles/style.css"/>
     <style>
+        .auth-fragment{
+            background-color: moccasin;
+            height:100%;
+            width: 100%;
+            text-align: center;
+            padding: .3ch .5em;
+            display: inline-block;
+        }
         input[type=radio] {
             visibility: hidden;
         }
@@ -25,8 +34,10 @@
     </style>
 </head>
 <body>
+<jsp:include page="/WEB-INF/authfragment.jsp"/>
 <h2>JSP - Java Server Pages</h2>
-<button><a href="reg.jsp">Reg</a></button>
+<form method="get" action="http://localhost:8080/WebBasics_war_exploded/reg"><input type="submit" value="Registration"/></form>
+<a href="http://localhost:8080/WebBasics_war_exploded/servlet">Servlet</a>
 <p>
     1. Новый проект и запуск:
     Проект создаем по шаблону Web-App (JSP,...)
@@ -39,8 +50,8 @@
 <p>
     2. Конфигурация запуска
     Для запуска веб-проектов есть несколько серверов (веб-сервер + сервер приложения)
-    <img src="img/GlassFish_logo.svg.png" alt="Glassfish server" />
-    <img src="img/Apache-Tomcat-8.5.5-1.png" alt="Tomcat server" />
+    <img src="<%=home%>/img/GlassFish_logo.svg.png" alt="Glassfish server" />
+    <img src="<%=home%>/img/Apache-Tomcat-8.5.5-1.png" alt="Tomcat server" />
     Их нужно установить (отдельно, с IDE обычно не поставляются)
     В конфигурации запуска нужно выбрать расположение сервера и артефакт: то, что
     будет деплоиться-выгружаться на сервер.
@@ -62,7 +73,7 @@
 <p>
     Основными дополнениями можно считать:
     подключение файлов и как следствие разбиение страниц
-    <jsp:include page="WEB-INF/fragment.jsp"/>
+    <jsp:include page="fragment.jsp"/>
 
     Условная верстка
         <% if(x < 10) { %>
@@ -87,5 +98,5 @@
     <% } %>
 </p>
 </body>
-<jsp:include page="WEB-INF/footer.jsp"></jsp:include>
+<jsp:include page="footer.jsp"></jsp:include>
 </html>
