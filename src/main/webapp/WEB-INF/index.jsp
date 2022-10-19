@@ -1,3 +1,6 @@
+<%@ page import="java.sql.ResultSet" %>
+<%@ page import="java.sql.SQLException" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -38,6 +41,11 @@
 <h2>JSP - Java Server Pages</h2>
 <form method="get" action="http://localhost:8080/WebBasics_war_exploded/reg"><input type="submit" value="Registration"/></form>
 <a href="http://localhost:8080/WebBasics_war_exploded/servlet">Servlet</a>
+<a href="filters">Filters</a>
+<%
+    ArrayList<String> s = (ArrayList<String>) request.getAttribute( "str" ) ;
+%>
+
 <p>
     1. Новый проект и запуск:
     Проект создаем по шаблону Web-App (JSP,...)
@@ -95,6 +103,12 @@
     <input type="radio" name="lang" id="lang-<%=lang%>" />
     <label for="lang-<%=lang%>"><%= lang %></label>
     <br/>
+    <% } %>
+</p>
+
+<p>
+    <% for( String str : s ) { %>
+    <span><%= str %></span> <br/>
     <% } %>
 </p>
 </body>

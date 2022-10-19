@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
+//@WebFilter("/*")
 @Singleton
 public class DemoFilter implements Filter {
     private FilterConfig filterConfig ;
@@ -21,16 +22,16 @@ public class DemoFilter implements Filter {
                                              FilterChain filterChain)         // Ссылка на "следующий" фильтр
             throws IOException, ServletException {
 
-        /* // "защита" от того, что привязка "/" сработает как "/*" и будет принимать все запросы
-        HttpServletRequest request = (HttpServletRequest) servletRequest ;
-        if( request.getServletPath().equals( "/" ) ) {
-            request.getRequestDispatcher( "home" ).forward( request, servletResponse ) ;
-            return ;
-        }*/
-        // System.out.println( "Filter starts" ) ;
+//        // "защита" от того, что привязка "/" сработает как "/*" и будет принимать все запросы
+//        HttpServletRequest request = (HttpServletRequest) servletRequest ;
+//        if( request.getServletPath().equals( "/" ) ) {
+//            request.getRequestDispatcher( "home" ).forward( request, servletResponse ) ;
+//            return ;
+//        }
+         System.out.println( "Filter starts" ) ;
         servletRequest.setAttribute( "DemoFilter", "Filter Works!" ) ;
         filterChain.doFilter( servletRequest, servletResponse ) ;
-        // System.out.println( "Filter ends" ) ;
+         System.out.println( "Filter ends" ) ;
     }
 
     public void destroy() {
