@@ -44,6 +44,7 @@
 <a href="filters">Filters</a>
 <%
     ArrayList<String> s = (ArrayList<String>) request.getAttribute( "str" ) ;
+    int count = (int)request.getAttribute("count");
 %>
 
 <p>
@@ -111,6 +112,7 @@
     <span><%= str %></span> <br/>
     <% } %>
 </p>
+<p>COUNT - <%=count%></p>
 </body>
 <jsp:include page="footer.jsp"></jsp:include>
 </html>

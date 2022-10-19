@@ -1,6 +1,5 @@
 package org.example.filtres;
 
-import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import org.example.services.hash.DataService;
 import org.example.services.hash.MysqlDataService;
@@ -38,10 +37,12 @@ public class DataFilter  implements Filter {
             String sql = "SELECT * FROM randoms";
             ArrayList<String> str = new ArrayList<String>();
             ResultSet res;
+            int count = 0;
             try (Statement statement = connection.createStatement()) {
                  res = statement.executeQuery(sql);
 
                 while (res.next()) {
+                    count++;
                     System.out.printf("%d %d %s %n", res.getLong(1),
                             res.getInt(2), res.getString("str"));
                     str.add(res.getString("str"));
@@ -53,7 +54,11 @@ public class DataFilter  implements Filter {
                 return;
             }
 
+
+
+
             servletRequest.setAttribute("str",str);
+            servletRequest.setAttribute("count",count);
             servletRequest.setAttribute( "DataService", dataService ) ;
             filterChain.doFilter( servletRequest, servletResponse ) ;
         }
